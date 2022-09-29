@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CBA Solution</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel=”stylesheet” href=”css/bootstrap.css”>
+    <link rel=”stylesheet” href=”css/bootstrap-responsive.css”>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Oswald:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-image: url('https://images.unsplash.com/photo-1646135802132-c7687c928886?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1242&q=80'); background-size:cover; background-repeat:no-repeat; background-position: center;background-attachment:fixed; font-family: 'Oswald', sans-serif;background-color:black;" >
+    
+    <nav class="navbar navbar-expand-xl navbar-expand-lg navbar-expand-sm navbar-light fixed-top py-0" style="background-color: rgb(0, 0, 0);">
+        <div class="container-fluid" style="height: 3em;">
+            <img src="https://images.unsplash.com/photo-1646135802132-c7687c928886?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1242&q=80" style="height:3em;"/>
+            <p class="navbar-brand me-auto mb-2 mb-xl-0" style="color: rgb(47, 133, 130); ">CBA Solution</p>
+            <button type="button" class="navbar-toggler" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarTogglerDemo3" 
+                aria-controls="navbarTogglerDemo3" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"
+                style="background-color: rgb(47, 133, 130);">
+                <span class="navbar-toggler-icon py-1" ></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" style="background-color: black;" id="navbarTogglerDemo3">
+                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                    <li class="nav-item d-flex justify-content-center">
+                        <a href="https://github.com/djmiller87/CBA_Solution" class="nav-link" style="color: rgb(47, 133, 130);">Project Info</a>
+                    </li>
+                    <li class="nav-item d-flex justify-content-center">
+                        <a href="/" class="nav-link" style="color: rgb(47, 133, 130);">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="p-5 m-2">
+    </div>
+    <div class="container d-flex flex-wrap p-5">
+        <div class="p-5 col-md-6 col-lg-24 col-xl-30 pt-3" style="color: rgb(93, 227, 205); background-color:rgba(0, 0, 0, 0.67);">
+            <h2 >Login</h2>
+            <form action="/login" method="post">
+                <div>
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" name="email">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" name="password">
+                    <input class="submit btn-lg mt-3" type="submit" value="Login" style="background-color: rgb(97, 229, 187);">
+                </div>
+                {% with messages = get_flashed_messages(category_filter = ['login']) %}    
+                    {% if messages %}                            
+                        {% for message in messages %}           
+                            <p class="text-danger" >{{message}}</p>                   
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+            <h5 class="pt-3 text-info" style="text-decoration:underline;">Test Drive Mock Account </h5>
+            <h6 class="text-info">Email: mockaccount@email.com</h6>
+            <h6 class="text-info">Password: Password#00</h6>
+        </div>
+        <div class="p-5 col-md-6 col-lg-24 col-xl-30 pt-3" style="color: rgb(93, 227, 205); background-color:rgba(0, 0, 0, 0.67);">
+            <h2>Register (New User)</h2>
+            <form action="/register" method="post">
+                <div>
+                    <label for="business_name">Business Name:</label>
+                    <input class="form-control" type="text" name="business_name">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" name="email">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+                <div>
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input class="form-control" type="password" name="confirm_password">
+                    <input class="submit btn-lg mt-3 bg-info" type="submit">
+                </div>
+                {% with messages = get_flashed_messages(category_filter = ['register']) %}    
+                    {% if messages %}                            
+                        {% for message in messages %}           
+                            <p class="text-danger">{{message}}</p>                   
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </div>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"
+        ></script>
+</body>
+
+</html>
